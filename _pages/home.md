@@ -1,0 +1,6 @@
+---
+layout: home
+permalink: /
+entries_layout: grid
+classes: wide
+---
