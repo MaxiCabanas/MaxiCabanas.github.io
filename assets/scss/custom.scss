@@ -1,19 +1,22 @@
 // Add your own custom styles here
 
-.my-social-icons {
-    @apply space-x-4; /* Adjusted spacing */
-    display: flex; /* Use flexbox for better control over spacing */
-    flex-wrap: wrap; /* Allow items to wrap onto new lines if needed */
-    li {
-      @apply mr-0; /* Right margin on list items for spacing */
-      a {
-        svg {
-          @apply h-10 w-10; /* Adjusted icon size */
-        }
+.social-icons {
+  @apply -space-x-1;
+  li {
+    @apply inline-block;
+    a {
+      @apply bg-transparent dark:bg-transparent dark:text-gray-300 flex leading-none text-2xl text-white;
+      svg {
+        @apply w-full h-full;
       }
     }
+  }
 }
 
 .modal-content {
   background-color: #555;
+}
+
+.home-page-style {
+  @apply flex flex-col items-center justify-center text-center;
 }

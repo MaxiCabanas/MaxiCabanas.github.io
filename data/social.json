@@ -1,24 +1,24 @@
 {
   "main": [
     {
-      "name": "facebook",
-      "icon": "fab fa-facebook",
-      "link": "https://www.facebook.com/"
-    },
-    {
-      "name": "twitter",
-      "icon": "fab fa-twitter",
-      "link": "https://twitter.com/"
-    },
-    {
-      "name": "github",
-      "icon": "fab fa-github",
-      "link": "https://www.github.com/"
+      "name": "email",
+      "icon": "fa-solid fa-at",
+      "link": "https://maxicabanas.com/"
     },
     {
       "name": "linkedin",
       "icon": "fa-brands fa-linkedin",
-      "link": "https://www.linkedin.com/"
+      "link": "https://www.linkedin.com/in/m-cabanas/"
+    },
+    {
+      "name": "github",
+      "icon": "fab fa-github",
+      "link": "https://github.com/MaxiCabanas"
+    },
+    {
+      "name": "itchio",
+      "icon": "fa-brands fa-itch-io",
+      "link": "https://zarpadoenlata.itch.io/"
     }
   ]
 }

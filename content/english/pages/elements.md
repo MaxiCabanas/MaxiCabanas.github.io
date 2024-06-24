@@ -8,11 +8,11 @@ description: "This is meta description"
 draft: false
 ---
 
+{{< toc >}}
 
 {{< modal btn-label="Click Me" body-class="background-color=#373737" >}}
 
 # How are You?
-{{< toc >}}
 
 {{</ modal >}}
 
