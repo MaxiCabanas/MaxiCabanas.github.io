@@ -5,9 +5,45 @@
     <div class="modal-overlay" data-project-modal-close data-modal-overlay></div>
   {{/*  <div class="modal-content {{ $bodyClass }}">  */}}
         <div class="modal-content">
+
+            {{/*  Background image 
+            TODO: Move this to a partial if need to reutilize */}}
+            <div class="fixed inset-x-0 top-0" style="z-index:-10">
+                {{ $background := "" }}
+                {{ with .Params.background }}
+                    {{ if or (strings.HasPrefix . "http:") (strings.HasPrefix . "https:") }}
+                        {{ $background = resources.GetRemote . }}
+                    {{ else }}
+                        {{ $background = resources.Get . }}
+                    {{ end }}
+                {{ end }}
+                {{ if $background }}
+                    <img class="project-background w-full h-full object-cover m-0 nozoom" src="{{ $background.RelPermalink }}" role="presentation">
+                    <div
+                        class="project-background absolute inset-0 h-full bg-gradient-to-t from-neutral dark:from-neutral-900 to-transparent mix-blend-normal">
+                    </div>
+                    <div
+                        class="project-background opacity-60 absolute inset-0 h-full bg-gradient-to-t from-neutral dark:from-neutral-900 to-neutral-100 dark:to-neutral-800 mix-blend-normal">
+                    </div>
+                {{ end }}
+            </div>
+
             <h1 class="text-center"> {{ .Title }} </h1>
+
+            <div class="flex mt-2" style="justify-content: center; align-items: center;">
+                <span class="ml-1 mr-1 rounded-md border bg-gray-800 border-orange-400 px-1 py-[1px] text-xs font-normal dark:border-orange-600 text-orange-700 dark:text-orange-400">
+                  Unreal Engine 4
+                </span>
+                <span class="ml-1 mr-1 rounded-md border bg-gray-800 border-orange-400 px-1 py-[1px] text-xs font-normal dark:border-orange-600 text-orange-700 dark:text-orange-400">
+                    UI
+                </span>
+            </div>
+            {{/*  <div class="text-center mt-1">
+                {{ partial "engine-logo.html" (dict "Engine" .Params.engine "IconClass" "max-h-8 max-w-8" ) }}
+            </div>  */}}
             <div class="content project-content">
                 {{ .Content }}
+
                 <hr class="project-hr">
                 {{ range .Params.list }}
                     <li>
@@ -16,15 +52,35 @@
                 {{end}}
                 <hr class="project-hr">
             </div>
+
+            {{/*  youtube  */}}
             {{ $id := .Params.youtube}}
             {{ if $id }}
+            <div class="mt-5">
                 {{ partial "youtube-lite.html" (dict "Id" $id "Class" "project-video" ) }}
+            </div>
+            {{else}}
+            {{ $video := .Params.video }}
+                {{ if $video }}
+                <div class="mt-5">
+                {{ partial "video.html" (dict "Src" $video "Class" "project-video") }}
+                </div>
+                {{end}}
             {{end}}
-            <hr class="project-hr">
 
-            {{/*  {{ $gallery := print .Page.Path "/gallery" }} */}}
-            {{ $gallery := "images/gallery"}}
-            {{ if $gallery }}
+            {{ $carousel := .Params.carousel}}
+            {{ if $carousel }}
+            <hr class="project-hr">
+            <div class="mt-5">
+                {{ partial "slider.html" (dict "Dir" $carousel "Class" "project-video") }}
+            </div>
+            {{end}}
+
+            <hr class="project-hr">
+            {{ $currentSlug := split .RelPermalink "/" | last 2}}
+            {{ $gallery := print "images/" (index $currentSlug 0) }}
+            {{ $assetsImage:= resources.Match (add (string $gallery) `/*`) }}
+            {{ if $assetsImage }}
                 {{ partial "gallery.html" (dict "Dir" $gallery "Command" "Fill") }}
             {{end}}
 

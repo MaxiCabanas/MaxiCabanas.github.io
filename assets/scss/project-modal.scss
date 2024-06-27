@@ -1,6 +1,20 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 40;
+    display: none;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
 .modal-content {
-    background-color: #202020;
-    top: 5%;
+    //background-color: #202020;
+    background-color: #171717; //neutral-900
+    top: 1%;
     z-index: 50;
     transform: translateY(0%);
     border-radius: 0.5rem;
@@ -15,11 +29,27 @@
 }
 
 .project-content {
-    @apply mx-auto lg:col-10
+    @apply mx-auto lg:col-11
+}
+
+.project-background {
+    border-radius: 0.5rem;
 }
 
 .project-video {
-    @apply mx-auto max-w-2xl
+    @apply mx-auto max-w-4xl
+}
+
+.project-title {
+    display: flex;
+    align-items: center;
+    @apply mb-3
+}
+
+.project-logo {
+    width: 2vw;
+    height: auto;
+    margin-left: auto;
 }
 
 .gallery {
@@ -31,11 +61,10 @@
 }
 
 .gallery .gallery-item {
-    margin: 0 10px;
+    margin: 0 5px;
     margin-bottom: 0px; // This was 20px to handle margin between items vertically. I set it to 0 because I'm using "nowrap" in .gallery, so only a row of images
     overflow: visible;
     max-width: calc(100% - 20px);
-    // max-width: 100px;
 }
 
 .gallery::after {

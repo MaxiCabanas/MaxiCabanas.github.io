@@ -1,6 +1,7 @@
 ---
 title: "Quantum League"
-summary: "This is a summary of the content"
+summary: "Released time-paradox multiplayer arena FPS."
+image: "images/quantum-preview.gif"
 type: "project"
 youtube: "L5R8YDLEQWI"
 list:
@@ -9,7 +10,8 @@ list:
     - Configurable inputs implementation.
     - Gameplay features implementation.
     - In-game store major changes in the visuals and functionality.
-gallery: "/gallery"
+background: "/images/backgrounds/quantum.jpg"
+engine: "ue"
 ---
 
-I worked on the last months before release and a few after until game was left unsupported.
+I worked on the last months before {{< link link="https://store.steampowered.com/app/651150/Quantum_League/" title="Quantum League's Steam Page" text="release" >}} and a few after until game was left unsupported.

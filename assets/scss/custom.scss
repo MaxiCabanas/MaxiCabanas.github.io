@@ -17,4 +17,14 @@
   @apply flex flex-col items-center justify-center text-center;
 }
 
+.custom-link {
+  color: #fb7e14 !important;
+  font-weight: bold;
+}
+
+.custom-link:hover {
+  color: #ffffff !important;
+  font-weight: bold;
+}
+
 @import "project-modal";

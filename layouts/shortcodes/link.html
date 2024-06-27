@@ -1,0 +1,5 @@
+{{ $link := .Get "link" }}
+{{ $text := .Get "text" }}
+{{ $title := .Get "title" }}
+
+<a href="{{ $link }}" title="{{ $title }}" class="custom-link">{{ $text }}</a>
