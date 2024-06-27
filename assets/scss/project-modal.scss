@@ -48,3 +48,12 @@
 .project-hr {
     @apply mb-2 mt-2
 }
+
+@media (max-width: 460px) {
+    .gallery {
+        flex-direction: row;
+    }
+    .gallery .gallery-item {
+        width: calc(100% - 20px) !important;
+    }
+}
