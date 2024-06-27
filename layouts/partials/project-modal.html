@@ -1,0 +1,33 @@
+{{/*  {{ $bodyClass:= .BodyClass }}  */}}
+
+
+<div class="modal" data-modal>
+    <div class="modal-overlay" data-project-modal-close data-modal-overlay></div>
+  {{/*  <div class="modal-content {{ $bodyClass }}">  */}}
+        <div class="modal-content">
+            <h1 class="text-center"> {{ .Title }} </h1>
+            <div class="content project-content">
+                {{ .Content }}
+                <hr class="project-hr">
+                {{ range .Params.list }}
+                    <li>
+                        {{ . }}
+                    </li>
+                {{end}}
+                <hr class="project-hr">
+            </div>
+            {{ $id := .Params.youtube}}
+            {{ if $id }}
+                {{ partial "youtube-lite.html" (dict "Id" $id "Class" "project-video" ) }}
+            {{end}}
+            <hr class="project-hr">
+
+            {{/*  {{ $gallery := print .Page.Path "/gallery" }} */}}
+            {{ $gallery := "images/gallery"}}
+            {{ if $gallery }}
+                {{ partial "gallery.html" (dict "Dir" $gallery "Command" "Fill") }}
+            {{end}}
+
+        <button class="modal-close" data-project-modal-close>&times;</button>
+    </div>
+</div>

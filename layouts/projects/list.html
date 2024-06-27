@@ -1,0 +1,147 @@
+{{ define "main" }}
+{{/*  {{ partial "page-header" . }}  */}}
+
+  {{/*  Hardcoded page header  */}}
+  <section>
+    <div class="container text-center">
+      <div
+        class="from-body to-theme-light dark:from-darkmode-body dark:to-darkmode-theme-light rounded-2xl bg-gradient-to-b px-8 py-14">
+        <h1>Projects</h1>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="row gx-5">
+
+        <!-- sidebar -->
+        {{/*  <div class="lg:col-4">
+          <!-- widget -->
+          {{ $widget:= site.Params.widgets.sidebar }}
+          {{ partialCached "widgets/widget-wrapper" ( dict "Widgets" $widget "Scope" . ) }}
+        </div>  */}}
+
+        <!-- Projects -->
+        <div class="lg:col-12">
+          <div class="row">
+            {{ $paginator := .Paginate (where .Site.AllPages "Type" "project") }}
+            {{ range $paginator.Pages }}
+              <div class="md:col-6 mb-14">
+                {{ partial "components/project-card" . }}
+              </div>
+            {{ end }}
+          </div>
+          {{ partial "components/pagination.html" . }}
+        </div>
+        {{ partial "project-modal" . }}
+
+        <script>
+        (function () {
+          "use strict";
+
+        const modal = document.querySelector("[data-modal]");
+        const closeButtons = modal.querySelectorAll("[data-project-modal-close]");
+        
+        window.onload = () => {
+          // fix images inside galleries.
+          bindImg();
+
+          // substring(10) removes "/project/" from start of path
+          // slice(0, -1) removes the "/" at the end of the path
+          const pageId = window.location.pathname.substr(10).slice(0, -1);
+          
+          if (pageId.length > 0) {
+            openProjectModal(modal);
+          }
+          else {
+            closeProjectModal(modal);
+          }
+        };
+
+        function openProjectModal(modal) {
+          if (modal === null) {
+            return null;
+          }
+          const overlay = modal.querySelector("[data-modal-overlay]");
+          modal.style.display = "block";
+          overlay.style.display = "block";
+          disableScroll();
+        }
+
+        function closeProjectModal(modal) {
+          if (modal === null) {
+            return null;
+          }
+          const overlay = modal.querySelector("[data-modal-overlay]");
+          modal.style.display = "none";
+          overlay.style.display = "none";
+          enableScroll();
+        }
+
+        closeButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const modal = button.closest("[data-modal]");
+            window.location.href = '../';
+          });
+        });
+        })();
+
+        //TODO: I should intervene all clicks in links, save this position and then load the project page so the scroll bar is not reseted to the top
+        function disableScroll() {
+          // Save the current scroll position
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          var scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+        
+          // Override the onscroll function to maintain the saved position
+          window.onscroll = function() {
+            window.scrollTo(scrollLeft, scrollTop);
+          };
+        }
+
+        function enableScroll() {
+          // Clear the overridden onscroll function
+          window.onscroll = function() {};
+        }
+
+        /*  Adjust the images in galleries  */
+        const justify_scale = screen.height * 0.25;
+        const allGallery = document.querySelectorAll(".gallery");
+
+        let loadedImg = 0;
+
+        // I have to check that every img is loaded this way because the event window.load is called before all images are loaded.
+        const bindImg = () => {
+          allGallery.forEach((gallery) => {
+          const items = gallery.querySelectorAll(".gallery-item");
+            items.forEach((item) => {
+              let image = item.querySelector("img");
+              image.onload = function() {
+                loadedImg += 1;
+                check();
+              };
+            });
+          });
+        };
+
+        const check = () => {
+          allGallery.forEach((gallery) => {
+            const items = gallery.querySelectorAll(".gallery-item");
+            if (items.length == loadedImg) {
+              items.forEach((item) => {
+                let image = item.querySelector("img");
+                let ratio = image.naturalWidth / image.naturalHeight;
+                item.style.width = justify_scale * ratio + "px";
+                item.style.flexGrow = ratio;
+                image.style.opacity = 1;
+              });
+            }
+          });
+        }
+        
+        </script>
+
+      </div>
+    </div>
+  </section>
+{{ end }}

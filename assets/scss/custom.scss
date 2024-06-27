@@ -13,10 +13,8 @@
   }
 }
 
-.modal-content {
-  background-color: #555;
-}
-
 .home-page-style {
   @apply flex flex-col items-center justify-center text-center;
 }
+
+@import "project-modal";

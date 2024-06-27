@@ -1,0 +1,50 @@
+.modal-content {
+    background-color: #202020;
+    top: 5%;
+    z-index: 50;
+    transform: translateY(0%);
+    border-radius: 0.5rem;
+    padding: 2rem;
+    max-width: 100%;
+    margin: 0 auto;
+    @apply max-w-fit max-h-fit mx-auto
+}
+  
+.modal-btn {
+    @apply border-dark text-dark dark:bg-neutral-900 hover:bg-dark dark:hover:text-dark bg-transparent hover:text-white dark:border-darkmode-primary dark:text-white dark:hover:bg-darkmode-primary;
+}
+
+.project-content {
+    @apply mx-auto lg:col-10
+}
+
+.project-video {
+    @apply mx-auto max-w-2xl
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-left: 0px;
+    margin-right: 0px;
+    @apply mx-auto max-w-2xl
+}
+
+.gallery .gallery-item {
+    margin: 0 10px;
+    margin-bottom: 0px; // This was 20px to handle margin between items vertically. I set it to 0 because I'm using "nowrap" in .gallery, so only a row of images
+    overflow: visible;
+    max-width: calc(100% - 20px);
+    // max-width: 100px;
+}
+
+.gallery::after {
+    content: "";
+    flex-grow: 0;
+    min-width: 0px;
+    max-width: 0px;
+}
+
+.project-hr {
+    @apply mb-2 mt-2
+}
