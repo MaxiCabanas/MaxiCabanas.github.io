@@ -1,0 +1,11 @@
+{{/* Loads the json at the given path */}}
+{{ $data := dict }}
+{{ $path := . }}
+{{ with resources.Get $path }}
+  {{ with . | transform.Unmarshal }}
+    {{ $data = . }}
+    {{return $data}}
+  {{ end }}
+{{ else }}
+  {{ errorf "Unable to get global resource %q" $path }}
+{{ end }}

@@ -1,0 +1,24 @@
+{{ $techs := .Techs | default slice }}
+{{ $iconClass := .IconClass | default ""}}
+
+{{/*  Load the techs JSON. Used for icon titles and descriptions */}}
+{{ $data := partial "tools/load-json.html" "data/techs.json" }}
+
+<div class="techs-logo-container">
+{{ range $tech := $techs}}
+
+        {{/*  Display logos  */}}
+        {{ $techData := index $data $tech}}
+        {{ $title := index $techData "title"}}
+        {{ $darkLogo := resources.Get (index $techData "dark")}}
+        {{ $lightLogo := resources.Get (index $techData "light")}}
+
+        {{ with and $darkLogo $lightLogo }}
+            <img src="{{ $darkLogo.RelPermalink }}" alt="{{$title}} logo" title="{{ $title }}" class="{{ if ne $iconClass "" }}{{ $iconClass }}{{ end }} tech-logo img logo-dark" >
+            <img src="{{ $lightLogo.RelPermalink }}" alt="{{$title}} logo" title="{{ $title }}" class="{{ if ne $iconClass "" }}{{ $iconClass }}{{ end }} tech-logo img logo-light">
+        {{else}}
+            {{ errorf "Unable to find the logos. Key: %q" $tech}}
+        {{end}}
+
+    {{end}}
+</div>

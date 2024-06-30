@@ -11,7 +11,12 @@ list:
     - Gameplay features implementation.
     - In-game store major changes in the visuals and functionality.
 background: "/images/backgrounds/quantum.jpg"
-engine: "ue"
+techs:
+    - ue4
+    - cpp
+badges:
+    - UI
+    - Gameplay
 ---
 
 I worked on the last months before {{< link link="https://store.steampowered.com/app/651150/Quantum_League/" title="Quantum League's Steam Page" text="release" >}} and a few after until game was left unsupported.

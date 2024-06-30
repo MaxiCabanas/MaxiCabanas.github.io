@@ -10,7 +10,12 @@ list:
     - Assets implementation
     - Animations implementation
     - Level Design tools
-engine: "unity"
+techs:
+    - unity
+    - csharp
+badges:
+    - IA
+    - Gameplay
 ---
 
 Stealth tactical game about rescuing animals from awful places. 

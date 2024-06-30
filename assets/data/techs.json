@@ -1,0 +1,32 @@
+{
+    "ue4": {
+        "title": "Unreal Engine 4",
+        "dark": "images/logos/ue-dark.svg",
+        "light": "images/logos/ue-light.svg"
+    },
+    "ue5": {
+        "title": "Unreal Engine 5",
+        "dark": "images/logos/ue-dark.svg",
+        "light": "images/logos/ue-light.svg"
+    },
+    "godot": {
+        "title": "Godot",
+        "dark": "images/logos/godot-dark.svg",
+        "light": "images/logos/godot-light.svg"
+    },
+    "unity": {
+        "title": "Unity",
+        "dark": "images/logos/unity-dark.svg",
+        "light": "images/logos/unity-light.svg"
+    },
+    "cpp": {
+        "title": "C++",
+        "dark": "images/logos/cpp-dark.svg",
+        "light": "images/logos/cpp-light.svg"
+    },
+    "csharp": {
+        "title": "C#",
+        "dark": "images/logos/csharp-dark.svg",
+        "light": "images/logos/csharp-light.svg"
+    }
+}

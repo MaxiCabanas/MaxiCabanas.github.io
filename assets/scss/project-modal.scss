@@ -13,7 +13,7 @@
 
 .modal-content {
     //background-color: #202020;
-    background-color: #171717; //neutral-900
+    //background-color: #171717; //neutral-900
     top: 1%;
     z-index: 50;
     transform: translateY(0%);
@@ -21,7 +21,7 @@
     padding: 2rem;
     max-width: 100%;
     margin: 0 auto;
-    @apply max-w-fit max-h-fit mx-auto
+    @apply max-w-fit max-h-fit mx-auto dark:bg-neutral-900
 }
   
 .modal-btn {
@@ -43,13 +43,18 @@
 .project-title {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     @apply mb-3
 }
 
-.project-logo {
-    width: 2vw;
+.techs-logo-container {
+    display: flex;
+    gap: 5px;
+}
+
+.tech-logo {
+    width: 32px;
     height: auto;
-    margin-left: auto;
 }
 
 .gallery {
