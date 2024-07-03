@@ -39,7 +39,8 @@
     {{ partial "search-modal.html" (dict "Context" . ) }}
 
 
-    <main class="{{ if (eq .Page.Permalink print .Site.BaseURL "/") }} home-page-style{{ end }}">
+    {{/*  <main class="{{ if (eq .Page.Permalink print .Site.BaseURL "/") }} home-page-style{{ end }}">  */}}
+    <main>
       {{ block "main" . }}{{ end }}
     </main>
 

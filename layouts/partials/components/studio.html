@@ -1,0 +1,13 @@
+{{ $data := partial "tools/load-json.html" "data/studio.json"}}
+{{ $indexStd := ""}}
+
+
+{{ with .Params.studio}}
+    {{ $studioData := index $data . }}
+    {{ $site := index $studioData "site" }}
+
+    <div class="dev-prefix">
+        Developed by:
+        {{ partial "components/link.html" (dict "Link" $site "Title" $studioData.name "Text" $studioData.name)}}
+    </div>
+{{end}}

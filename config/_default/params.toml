@@ -1,9 +1,9 @@
 #################### default parameters ################################
 # favicon module: https://github.com/gethugothemes/hugo-modules/tree/master/images#favicon-implementation
-favicon = "images/favicon.png"
+favicon = "images/mine/MaxiPoroto.jpg"
 # logo module: https://github.com/gethugothemes/hugo-modules/tree/master/images#logo-implementation
-logo = "images/logo.png"
-logo_darkmode = "images/logo-darkmode.png"
+# logo = "images/logo.png"
+# logo_darkmode = "images/logo-darkmode.png"
 # use `px` or `x` with logo_width, example: "100px".
 # Note: logo_width is not work with .svg file
 logo_width = "160px"
@@ -18,7 +18,7 @@ navbar_fixed = true
 theme_switcher = true
 theme_default = "dark" # available options [light/dark/system]
 # Main Sections
-mainSections = ["blog"]
+mainSections = ["blog", "projects"]
 # contact form action
 contact_form_action = "#" # contact form works with [https://airform.io/] or [https://formspree.io]
 # google tag manager, see https://developers.google.com/tag-manager/
@@ -35,9 +35,9 @@ copyright = "© 2024 Maximiliano Cabañas - All rights reserved"
 enable = false
 preloader = "" # use jpg, png, svg or gif format.
 
-# Navigation button
+# Navigation button, showing up at the header
 [navigation_button]
-enable = true
+enable = false
 label = "get a quote"
 link = "contact"
 

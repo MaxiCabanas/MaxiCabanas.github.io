@@ -36,15 +36,14 @@
                 {{ $techsTitles = $techsTitles | append (index $techData "title") }}
             {{end}}
 
-            {{/*  badges  */}}
-            {{ $badges := union $techsTitles .Params.badges}}
-            {{ partial "badge.html" $badges }}
             
             <div class="content project-content">
                 <body>
                     {{ .Content }}
                 </body>
-
+                    
+                {{ partial "components/studio.html" . }}
+                    
                 <hr class="project-hr">
                 {{ range .Params.list }}
                     <li>

@@ -1,8 +1,9 @@
 ---
 title: "Quantum League"
-summary: "Released time-paradox multiplayer arena FPS."
+summary: |
+    Released time-paradox multiplayer arena FPS.  
+    Worked in core gameplay elements.
 image: "images/quantum-preview.gif"
-type: "project"
 youtube: "L5R8YDLEQWI"
 list:
     - Bug fixing and stabilization.
@@ -15,8 +16,12 @@ techs:
     - ue4
     - cpp
 badges:
-    - UI
+    - UMG UI
     - Gameplay
+    - Bug Fixing
+importance: 0 #The smaller the most important in the pagination
+studio: "ngd"
+type: "project"
 ---
 
 I worked on the last months before {{< link link="https://store.steampowered.com/app/651150/Quantum_League/" title="Quantum League's Steam Page" text="release" >}} and a few after until game was left unsupported.

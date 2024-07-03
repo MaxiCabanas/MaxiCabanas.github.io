@@ -35,4 +35,8 @@ hr {
   @apply ml-1 mr-1 rounded-md border bg-neutral-100 dark:bg-neutral-900 px-1 py-[1px] text-xs font-normal border-gray-800 dark:border-gray-300 text-gray-800 dark:text-gray-300
 }
 
+.dev-prefix {
+  @apply text-base font-primary font-medium leading-relaxed text-text dark:text-darkmode-text;
+}
+
 @import "project-modal";

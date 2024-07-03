@@ -6,7 +6,7 @@
     <div class="container text-center">
       <div
         class="from-body to-theme-light dark:from-darkmode-body dark:to-darkmode-theme-light rounded-2xl bg-gradient-to-b px-8 py-14">
-        <h1>Projects</h1>
+        <h1>Portfolio</h1>
       </div>
     </div>
   </section>
@@ -15,17 +15,12 @@
     <div class="container">
       <div class="row gx-5">
 
-        <!-- sidebar -->
-        {{/*  <div class="lg:col-4">
-          <!-- widget -->
-          {{ $widget:= site.Params.widgets.sidebar }}
-          {{ partialCached "widgets/widget-wrapper" ( dict "Widgets" $widget "Scope" . ) }}
-        </div>  */}}
+        {{ $projects := where .Site.AllPages "Type" "project" }}
+        {{ $paginator := .Paginate ($projects.ByParam "importance") 99 }} {{/* The 99 is overriding the global pagination value */}}
 
         <!-- Projects -->
         <div class="lg:col-12">
           <div class="row">
-            {{ $paginator := .Paginate (where .Site.AllPages "Type" "project") }}
             {{ range $paginator.Pages }}
               <div class="md:col-6 mb-14">
                 {{ partial "components/project-card" . }}
@@ -36,6 +31,7 @@
         </div>
         {{ partial "project-modal" . }}
 
+        {{/*  all logic about the project modals  */}}
         <script>
         (function () {
           "use strict";
@@ -140,7 +136,6 @@
         }
         
         </script>
-
       </div>
     </div>
   </section>

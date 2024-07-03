@@ -1,8 +1,6 @@
+{{ $data := .Data | default dict }}
 {{ $techs := .Techs | default slice }}
 {{ $iconClass := .IconClass | default ""}}
-
-{{/*  Load the techs JSON. Used for icon titles and descriptions */}}
-{{ $data := partial "tools/load-json.html" "data/techs.json" }}
 
 <div class="techs-logo-container">
 {{ range $tech := $techs}}

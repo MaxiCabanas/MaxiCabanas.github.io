@@ -4,17 +4,32 @@
   {{/*  Preview image  */}}
   {{ $image:= .Params.image }}
   {{ if $image }}
-      {{ partial "image" (dict "Src" $image "Context" .Page "Alt" .Title "Class" "mb-6 w-full rounded") }}
+      {{ partial "image" (dict "Src" $image "Context" .Page "Alt" .Title "Class" "mb-6 w-full rounded" "Size" "480x270" "Command" "Fill") }}
   {{ end }}
+
+  {{/*  Get the techs titles to append them to the custom badges  */}}
+  {{ $data := partial "tools/load-json.html" "data/techs.json" }}
 
   {{/*  Clickeable title  */}}
   <div class="project-title">
     <h4> {{ .Title }} </h4>
-    {{ partial "techs-logos.html" (dict "Techs" .Params.techs ) }}
+    {{ partial "techs-logos.html" (dict "Data" $data "Techs" .Params.techs ) }}
   </div>
+
+  {{ $techsTitles := slice }}
+  {{ range .Params.techs }}
+      {{ $techData := index $data .}}
+      {{ $techsTitles = $techsTitles | append (index $techData "title") }}
+  {{end}}
+
+  {{/*  badges  */}}
+  {{ $badges := union $techsTitles .Params.badges}}
+  {{ partial "badge.html" $badges }}
   
   {{/*  Summary  */}}
   <p class="mb-6">{{ .Summary }}</p>
+
+  {{ partial "components/studio.html" . }}
   
   {{/*  Button  */}}
   <a class="btn btn-outline-primary btn-sm" href="{{ .RelPermalink }}">
