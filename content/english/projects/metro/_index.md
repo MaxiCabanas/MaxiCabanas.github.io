@@ -25,4 +25,17 @@ studio: "ngd"
 type: "project"
 ---
 
-Worked building the game from scratch as part of the Gameplay team.
+Gameplay Programmer on an unannounced AAA multiplayer FPS greenfield project for +2 years.  
+Responsible for designing complex systems, core mechanics, game feeling and implementing UI architecture.  
+
+Some of the most important features I worked on are:
+
+- Missions and Objectives.
+- Player ability to Climb ladders and other surfaces.
+- Gameplay Messages.
+- Player Inventory System.
+- Gameplay Interaction System.
+- Player locomotion replication.
+- Core UI Implementations.
+- Map System.
+- Game Design "in-engine" tools.
