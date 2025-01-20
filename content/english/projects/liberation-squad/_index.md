@@ -19,7 +19,7 @@ badges:
     - IA
     - Gameplay
     - Editor tools
-importance: 1
+importance: 2
 studio: "hpc"
 ---
 

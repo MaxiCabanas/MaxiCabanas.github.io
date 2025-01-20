@@ -1,6 +1,6 @@
 ---
 title: "Quantum League"
-summary: |
+summary: 
     Released time-paradox multiplayer arena FPS.  
     Worked in core gameplay elements.
 image: "images/quantum-preview.gif"
@@ -16,6 +16,7 @@ techs:
     - ue4
     - cpp
 badges:
+    - Multiplayer
     - UMG UI
     - Gameplay
     - Bug Fixing

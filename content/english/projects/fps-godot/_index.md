@@ -14,6 +14,7 @@ techs:
 badges:
     - Gameplay
     - Procedural Animations
+studio: me
 ---
 
 I made this game in my spare time as a way to learn how to build complex systems in a multiplayer game inside Godot.

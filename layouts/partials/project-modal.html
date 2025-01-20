@@ -68,7 +68,7 @@
                 {{end}}
             {{end}}
 
-            {{ $carousel := .Params.carousel}}
+            {{ $carousel := .Params.carousel }}
             {{ if $carousel }}
             <hr class="project-hr">
             <div class="mt-5">
@@ -80,8 +80,14 @@
             {{ $currentSlug := split .RelPermalink "/" | last 2}}
             {{ $gallery := print "images/" (index $currentSlug 0) }}
             {{ $assetsImage:= resources.Match (add (string $gallery) `/*`) }}
-            {{ if $assetsImage }}
-                {{ partial "gallery.html" (dict "Dir" $gallery "Command" "Fill") }}
+            
+            <!-- We should create a new partial that takes a Steam page URL and returns a array of resources with the whole gallery of the page.
+            We could even specify an optional parameter that includes/excludes the videos of the gallery -->
+            {{/* Get images from the Gallery parameter. */}}
+            {{ $remoteImages := .Params.gallery}}
+
+            {{ if or $assetsImage $remoteImages }}
+                {{ partial "components/gallery.html" (dict "Dir" $gallery "Remote" $remoteImages "Command" "Fill" ) }}
             {{end}}
 
         <button class="modal-close" data-project-modal-close>&times;</button>

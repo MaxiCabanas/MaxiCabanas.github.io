@@ -12,8 +12,8 @@
         {{ $lightLogo := resources.Get (index $techData "light")}}
 
         {{ with and $darkLogo $lightLogo }}
-            <img src="{{ $darkLogo.RelPermalink }}" alt="{{$title}} logo" title="{{ $title }}" class="{{ if ne $iconClass "" }}{{ $iconClass }}{{ end }} tech-logo img logo-dark" >
-            <img src="{{ $lightLogo.RelPermalink }}" alt="{{$title}} logo" title="{{ $title }}" class="{{ if ne $iconClass "" }}{{ $iconClass }}{{ end }} tech-logo img logo-light">
+            <img src="{{ $darkLogo.RelPermalink }}" alt="{{$title}} logo" title="{{ $title }}" class="tech-logo img logo-dark {{ if ne $iconClass "" }}{{ $iconClass }}{{ end }}" >
+            <img src="{{ $lightLogo.RelPermalink }}" alt="{{$title}} logo" title="{{ $title }}" class="tech-logo img logo-light {{ if ne $iconClass "" }}{{ $iconClass }}{{ end }}">
         {{else}}
             {{ errorf "Unable to find the logos. Key: %q" $tech}}
         {{end}}

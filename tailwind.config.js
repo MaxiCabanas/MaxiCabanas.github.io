@@ -54,6 +54,8 @@ module.exports = {
         border: theme.colors.default.theme_color.border,
         "theme-light": theme.colors.default.theme_color.theme_light,
         "theme-dark": theme.colors.default.theme_color.theme_dark,
+        "portal-orange": "#ff9a00",
+        "portal-blue": "#14d8fb",
         darkmode: {
           text: theme.colors.darkmode.text_color.default,
           light: theme.colors.darkmode.text_color.light,
@@ -64,6 +66,8 @@ module.exports = {
           border: theme.colors.darkmode.theme_color.border,
           "theme-light": theme.colors.darkmode.theme_color.theme_light,
           "theme-dark": theme.colors.darkmode.theme_color.theme_dark,
+          "portal-orange": "#ff9a00",
+          "portal-blue": "#14d8fb",
         },
       },
       fontSize: {

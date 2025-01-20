@@ -1,0 +1,32 @@
+{{ define "main" }}
+
+{{ $data := partial "tools/load-json.html" "data/techs.json" }}
+  {{/*  {{ partial "page-header" . }}  */}}
+  <section class="section-sm">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-10">
+          <div class="content">
+            
+            <div class="flex items-end" style="justify-content: space-between;">
+                <div class="justify-center">
+                    <h1 class="text-8xl mt-auto">Hello</h1>
+                    <div class="flex items-baseline" style="justify-content: space-between;">
+                        <div class="flex items-baseline -mt-14 space-x-2">
+                            <h4>My name is  </h4>
+                            <h1 style="color: #14d8fb;">{{ .Params.name }}</h1>
+                        </div>
+                    </div>
+                    <h6 class="-mt-2">{{ .Params.city }}, {{ .Params.country }}.</h6>
+                </div>
+
+                {{ partial "techs-logos.html" (dict "Data" $data "Techs" .Params.techs "IconClass" "min-w-[64px]") }} 
+            </div>
+
+            {{ .Content }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{{ end }}

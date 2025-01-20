@@ -53,8 +53,8 @@
 }
 
 .tech-logo {
-    width: 32px;
     height: auto;
+    @apply w-[32px]
 }
 
 .gallery {
