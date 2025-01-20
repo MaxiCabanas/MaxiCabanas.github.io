@@ -37,7 +37,7 @@ hr {
 
 .dev-prefix {
   justify-content: space-between;
-  @apply flex flex-row items-center justify-items-center text-base font-primary font-medium leading-relaxed text-text dark:text-darkmode-text;
+  @apply flex flex-row items-center justify-items-center text-base font-primary font-medium leading-relaxed text-text dark:text-darkmode-text mb-6;
 }
 
 @import "project-modal";
