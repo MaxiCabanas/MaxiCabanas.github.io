@@ -21,6 +21,7 @@ badges:
     - Editor tools
 importance: 2
 studio: "hpc"
+link: https://store.steampowered.com/app/1297520/Animal_Liberation_Squad/
 ---
 
 Stealth tactical game about rescuing animals from awful places.  

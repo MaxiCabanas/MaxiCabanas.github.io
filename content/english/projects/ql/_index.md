@@ -22,7 +22,8 @@ badges:
     - Bug Fixing
 importance: 0 #The smaller the most important in the pagination
 studio: "ngd"
+link: "https://store.steampowered.com/app/651150/Quantum_League/"
 type: "project"
 ---
 
-I worked on the last months before {{< link link="https://store.steampowered.com/app/651150/Quantum_League/" title="Quantum League's Steam Page" text="release" >}} and a few after until game was left unsupported.
+I worked on the last months before release and a few after until game was left unsupported.

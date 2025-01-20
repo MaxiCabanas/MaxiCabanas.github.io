@@ -1,13 +1,29 @@
 {{ $data := partial "tools/load-json.html" "data/studio.json"}}
 {{ $indexStd := ""}}
 
+{{ $link := .Params.link }}
 
 {{ with .Params.studio}}
     {{ $studioData := index $data . }}
     {{ $site := index $studioData "site" }}
 
     <div class="dev-prefix">
+        <div>
         Developed by:
         {{ partial "components/link.html" (dict "Link" $site "Title" $studioData.name "Text" $studioData.name)}}
+        </div>
+
+        {{ with $link }}
+
+            {{ $siteName := ""}}
+            {{ if strings.Contains . "steam"}}
+            {{ $siteName = "Steam Page"}}
+            {{ else if strings.Contains $link "github"}}
+            {{ $siteName = "Github Repository"}}
+            {{ end }}
+            {{ partial "components/link.html" (dict "Link" . "Title" $siteName "Text" "project link")}}
+            
+        {{ end }}
+        
     </div>
 {{end}}

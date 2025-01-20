@@ -69,8 +69,8 @@
     {{ range $assetsImage }}
       {{ $image := resources.Get . }}
       {{ $imageExt := path.Ext $image }}
-      {{ if or (eq $imageExt `.jpg`) (eq $imageExt `.jpeg`) (eq $imageExt `.png`) (eq $imageExt `.webp`) (eq $imageExt `.svg`) (eq $imageExt `.gif`) (eq $imageExt `.ico`) }}
-        {{ partial "image-pipe.html" (dict "Context" $scratch "Height" $height "Width" $width "Command" $command "Webp" $webp "Image" $image "Option" $option "Zoomable" $zoomable "Resize" $resize) }}
+      {{ if or (eq $imageExt `.webm`) (eq $imageExt `.jpg`) (eq $imageExt `.jpeg`) (eq $imageExt `.png`) (eq $imageExt `.webp`) (eq $imageExt `.svg`) (eq $imageExt `.gif`) (eq $imageExt `.ico`) }}
+        {{ partial "components/image-pipe.html" (dict "Context" $scratch "Height" $height "Width" $width "Command" $command "Webp" $webp "Image" $image "Option" $option "Zoomable" $zoomable "Resize" $resize) }}
         {{ $imageHeight:= $scratch.Get "image-height" }}
         {{ $imageWidth:= $scratch.Get "image-width" }}
 
@@ -81,6 +81,18 @@
               href="{{ $image.RelPermalink }}"
               style="display: block;"
               class="glightbox">
+              {{ if eq $imageExt `.webm` }}
+              <video
+                width="320"
+                height="240"
+                autoplay
+                loop
+                style="max-width:100%">
+                <source src="{{ $scratch.Get `image` }}" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <img/>
+              {{ else }}
               <img
                 loading="{{ $loading }}"
                 src="{{ $scratch.Get `image` }}"
@@ -88,6 +100,7 @@
                 style="margin: 0;"
                 alt="{{ .Name }}"
                 onerror="this.onerror='null';this.src='{{ $scratch.Get `imageFallback` }}'" />
+              {{ end }}
             </a>
           {{ else }}
             <img

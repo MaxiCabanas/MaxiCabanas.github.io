@@ -1,39 +1,43 @@
 <div class="bg-body dark:bg-darkmode-body">
   <a href="{{ .RelPermalink }}">
 
-  {{/*  Preview image  */}}
-  {{ $image:= .Params.image }}
-  {{ if $image }}
-      {{ partial "image" (dict "Src" $image "Context" .Page "Alt" .Title "Class" "mb-6 w-full rounded" "Size" "480x270" "Command" "Fill") }}
-  {{ end }}
+    {{/*  Preview image  */}}
+    {{ $image:= .Params.image }}
+    {{ if $image }}
+        {{ partial "image" (dict "Src" $image "Context" .Page "Alt" .Title "Class" "mb-6 w-full rounded" "Size" "480x270" "Command" "Fill") }}
+    {{ end }}
 
-  {{/*  Get the techs titles to append them to the custom badges  */}}
-  {{ $data := partial "tools/load-json.html" "data/techs.json" }}
+    {{/*  Get the techs titles to append them to the custom badges  */}}
+    {{ $data := partial "tools/load-json.html" "data/techs.json" }}
 
-  {{/*  Clickeable title  */}}
-  <div class="project-title">
-    <h4> {{ .Title }} </h4>
-    {{ partial "techs-logos.html" (dict "Data" $data "Techs" .Params.techs ) }}
-  </div>
+    {{/*  Clickeable title  */}}
+    <div class="project-title">
+      <h4> {{ .Title }} </h4>
+      {{ partial "techs-logos.html" (dict "Data" $data "Techs" .Params.techs ) }}
+    </div>
 
-  {{ $techsTitles := slice }}
-  {{ range .Params.techs }}
-      {{ $techData := index $data .}}
-      {{ $techsTitles = $techsTitles | append (index $techData "title") }}
-  {{end}}
+    {{ $techsTitles := slice }}
+    {{ range .Params.techs }}
+        {{ $techData := index $data .}}
+        {{ $techsTitles = $techsTitles | append (index $techData "title") }}
+    {{end}}
 
-  {{/*  badges  */}}
-  {{ $badges := union $techsTitles .Params.badges}}
-  {{ partial "badge.html" $badges }}
+    {{/*  badges  */}}
+    {{ $badges := union $techsTitles .Params.badges}}
+    {{ partial "badge.html" $badges }}
+    
+    {{/*  Summary  */}}
+    <p class="mb-6">{{ .Summary }}</p>
   
-  {{/*  Summary  */}}
-  <p class="mb-6">{{ .Summary }}</p>
+    
+  </a>
 
+  {{/*  Studio info and project link  */}}
   {{ partial "components/studio.html" . }}
-  
+
   {{/*  Button  */}}
   <a class="btn btn-outline-primary btn-sm" href="{{ .RelPermalink }}">
     {{ T "read_more" }}
   </a>
-</a>
+  
 </div>

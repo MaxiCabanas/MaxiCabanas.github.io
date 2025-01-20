@@ -36,7 +36,8 @@ hr {
 }
 
 .dev-prefix {
-  @apply text-base font-primary font-medium leading-relaxed text-text dark:text-darkmode-text;
+  justify-content: space-between;
+  @apply flex flex-row items-center justify-items-center text-base font-primary font-medium leading-relaxed text-text dark:text-darkmode-text;
 }
 
 @import "project-modal";

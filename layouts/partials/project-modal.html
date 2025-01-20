@@ -63,7 +63,7 @@
             {{ $video := .Params.video }}
                 {{ if $video }}
                 <div class="mt-5">
-                {{ partial "video.html" (dict "Src" $video "Class" "project-video") }}
+                {{ partial "video.html" (dict "Src" $video "Class" "project-video" "Width" 720 "Height" 360) }}
                 </div>
                 {{end}}
             {{end}}

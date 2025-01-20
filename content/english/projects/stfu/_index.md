@@ -29,6 +29,7 @@ list:
     - Code refactorization.
     - Major changes and new features to core UI.
 studio: lo
+link: https://store.steampowered.com/app/971850/Ships_That_Fight_Underground_STFU/
 importance: 1
 type: "project"
 ---
