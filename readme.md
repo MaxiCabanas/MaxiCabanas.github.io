@@ -1,3 +1,10 @@
+<h1 align="center">Welcome to the source code of my site!</h1>
+
+## Some personal notes:
+
+To modify what is shown in the header and footer, the file is "menus.en.toml" (I always forget this). For now the site is only in english, if more languajes are suported more than one file should be maintain, "menus.es.toml" for spanish for instance.
+
+## Now the default template instructions, just in case is useful.
 <h1 align="center">Hugo + Tailwind CSS Starter and Boilerplate</h1>
 
 <p align="center">Hugoplate is a free starter template built with Hugo, and TailwindCSS, providing everything you need to jumpstart your Hugo project and save valuable time.</p>

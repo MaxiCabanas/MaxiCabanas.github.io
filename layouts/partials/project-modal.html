@@ -76,7 +76,6 @@
             </div>
             {{end}}
 
-            <hr class="project-hr">
             {{ $currentSlug := split .RelPermalink "/" | last 2}}
             {{ $gallery := print "images/" (index $currentSlug 0) }}
             {{ $assetsImage:= resources.Match (add (string $gallery) `/*`) }}
@@ -87,6 +86,7 @@
             {{ $remoteImages := .Params.gallery}}
 
             {{ if or $assetsImage $remoteImages }}
+                <hr class="project-hr">
                 {{ partial "components/gallery.html" (dict "Dir" $gallery "Remote" $remoteImages "Command" "Fill" ) }}
             {{end}}
 

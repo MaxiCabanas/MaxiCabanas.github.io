@@ -1,0 +1,35 @@
+<article class="mt-10 mb-10 w-full h-full flex flex-col items-center justify-center text-center">
+    <div class="relative px-1 py-1 flex flex-col items-center justify-center text-center">
+      {{/*  Profile picture  */}}
+      {{ with .Site.Author.image }}
+        {{ partial "image" (dict "Src" . "Alt" "Size" "200x200" "Banner image" "Loading" "eager" "Class" "mb-2 rounded-full h-36 w-36" "DisplayXL" "800x" ) }}
+      {{ end }}
+      {{/*  Name  */}}
+      <h1 class="mb-0 text-5xl font-extrabold text-neutral-800 dark:text-neutral-200">
+          {{ .Site.Author.name | default .Site.Title }}
+      </h1>
+      {{/*  headline  */}}
+      {{ with .Site.Author.headline }}
+      <h2 class="mt-0 mb-0 text-2xl text-neutral-800 dark:text-neutral-300">
+          {{ . | markdownify }}
+      </h2>
+      {{ end }}
+      {{/*  Social links  */}}
+      <div class="lg:mt-2">
+        <ul class="social-icons">
+          {{ range site.Data.social.main }}
+            <li>
+              <a
+                target="_blank"
+                aria-label="{{ .name }}"
+                rel="nofollow noopener"
+                href="{{ .link | safeURL }}"
+                >
+                <i class="{{ .icon }}"></i>
+              </a>
+            </li>
+          {{ end }}
+        </ul>
+      </div>
+    </div>
+  </article>
