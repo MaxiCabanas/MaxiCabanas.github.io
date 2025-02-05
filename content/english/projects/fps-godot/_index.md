@@ -8,7 +8,7 @@ list:
     - Weapon procedural animations on mouse movement.
     - Procedural recoil.
     - Multiplayer replication.
-background: "images/fps-godot-portada.gif"
+background: "images/fps-godot-portada-optimized.gif"
 techs:
     - godot
 badges:
